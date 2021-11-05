@@ -20,7 +20,7 @@ const numArr = [2, 5, 3, 9];
 const halfOfnumArr = numArr.splice(2, 2);
 
 const multiplyer = function(arr) {
-    let mult = arr.reduce((currentItem, item) => currentItem * item);
+    const mult = arr.reduce((currentItem, item) => currentItem * item);
     return mult;
 }
 
