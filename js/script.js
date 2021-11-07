@@ -11,6 +11,8 @@ const joiner = arr => arr.join('+');
 const str = `${joiner(letterArr)},${joiner(halfOfLetterArr)}`;
 console.log(str);
 
+
+
 // Task 2
 const numArr = [2, 5, 3, 9];
 
@@ -27,10 +29,14 @@ const multiplyer = function(arr) {
 const result = multiplyer(numArr) + multiplyer(halfOfnumArr);
 console.log(result);
 
+
+
 // Task 3
 const subArr = [ [1, 2, 3], [4, 5, 6], [7,8,9] ];
 const numberFour = subArr.flat(2).find(item => item === 4);
 console.log(numberFour);
+
+
 
 // Task 4
 const someObj = {
@@ -41,6 +47,8 @@ const someObj = {
 
 const someStr = someObj.js.splice(0, 1).join('');
 console.log(someStr);
+
+
 
 // Task 5
 const foo = function(symb, amount) {
@@ -54,6 +62,8 @@ const foo = function(symb, amount) {
     return arr;
 } 
 console.log(foo('x', 5));
+
+
 
 // Task 6
 const foo2 = function(amount) {
@@ -73,6 +83,7 @@ const foo2 = function(amount) {
 console.log(foo2(5));
 
 
+
 // Task 7
 const arrayFill = function(elem, amounthOfElem) {
     const newArr = [];
@@ -85,23 +96,41 @@ const arrayFill = function(elem, amounthOfElem) {
 }
 console.log(arrayFill('x', 5));
 
+
+
 // Task 8 
 const randomArr = [0, 3, -4, 1, 3, 2, 2, 1, 6, 1, 8];
 
-function getLengthSumMoreTen(arr) {
-    const sumMoreTenArr = [];
-    let sum = 0;
+// function getLengthSumMoreTen(arr) {
+//     const sumMoreTenArr = [];
+//     let sum = 0;
     
-    for(let item of arr) {
-        sum += item;
-        sum <= 10 ? sumMoreTenArr.push(item) : sumMoreTenArr;
-    }
+//     for(let item of arr) {
+//         sum += item;
+//         sum <= 10 ? sumMoreTenArr.push(item) : sumMoreTenArr;
+//     }
 
-    return sumMoreTenArr.length + 1;
+//     return sumMoreTenArr.length + 1;
+// }
+
+function getLengthSumMoreTen(array) {
+    const a = array.reduce((counter, item) => {
+        if(counter.sum > 10) {
+            return counter;
+        }
+        
+        counter.amount += 1;    
+        counter.sum += item;
+        return counter;
+    }, {sum: 0, amount: 0});
+
+    return a.amount;
 }
 
-const result2 = getLengthSumMoreTen(randomArr);
-console.log(result2);
+const res = getLengthSumMoreTen(randomArr);
+console.log(res);
+
+
 
 // Task 9
 const orderedArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -118,10 +147,14 @@ function getReverseArray(array) {
 
 console.log(getReverseArray(orderedArr));
 
+
+
 // Task 10
 const multiArr = [[1, 2, 3], [4, 5], [6]];
 const sumOfElem = multiArr.flat(Infinity).reduce((currentElem, item) => item + currentElem);
 console.log(sumOfElem);
+
+
 
 // Task 11
 const superMultiArr =  [[[1, 2], [3, 4]], [[5, 6], [7, 8]]];
